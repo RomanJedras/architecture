@@ -1,1 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+node_modules/
+package-lock.json
+package.json
+.idea/architecture.iml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/sonarlint/
+.idea/workspace.xml
