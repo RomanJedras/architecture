@@ -8,6 +8,8 @@
     "ansi-regex": "^4.1.0",
     "ansi-styles": "^3.2.1",
     "browserslist": "^4.5.1",
+    "jquery": "latest",
+    "mustache": "^3.0.1",
     "normalize.css": "^8.0.1",
     "primer": "^11.0.0",
     "react": "^16.8.4",
@@ -15,8 +17,7 @@
     "save-dev": "^2.0.0",
     "stylelint-config-primer": "^5.0.0",
     "stylelint-config-sass-guidelines": "^5.3.0",
-    "stylelint-scss": "^3.5.4",
-    "jquery": "latest"
+    "stylelint-scss": "^3.5.4"
   },
   "devDependencies": {
     "@primer/css": "^12.2.0",
