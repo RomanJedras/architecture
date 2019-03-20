@@ -1,6 +1,3 @@
-
-
-
 (function(){
 
   let templateList = document.getElementById('template-slaider-list').innerHTML;
@@ -12,8 +9,6 @@
   }
   let results = document.getElementById('results');
   results.insertAdjacentHTML('beforeend', listItems);
-
-
 })();
 
 
