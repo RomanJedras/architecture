@@ -116,7 +116,7 @@
 
 /* line 323, sass/style.css */ .container p { width: calc(100% - 80px); margin: 0 auto; }
 
-/* line 327, sass/style.css */ .carousel-cell { width: 100%; /* full width */ height: 50vh; /* height of carousel */ min-width: 250px; margin-right: 10px; background-size: cover; opacity: .8; background-color: #000; }
+/* line 327, sass/style.css */ .carousel-cell { width: 100%; /* full width */ height: 50vh; /* height of carousel */ min-height: 250px; margin-right: 10px; background-size: cover; opacity: .8; background-color: #000; }
 
 /* line 338, sass/style.css */ .btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4; }
 

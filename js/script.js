@@ -13,9 +13,13 @@ $( document ).ready(function() {
         $('#progress').width( progress * 100 + '%' );
     });
 
-    $('#reset').on('click', function () {
-        $carousel.flickity('previous');
-    });
+
+  $('#reset').on('click', function () {
+    $carousel.flickity()
+      .flickity( 'select', 0 );
+  });
+
+
 });
 
 
