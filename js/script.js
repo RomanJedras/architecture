@@ -151,14 +151,7 @@
     markerThree.addListener('click', function(){
       infos.innerHTML = 'You clicked markerThree';
     });
-
-
   }
-
-
-
-
-
 })();
 
 
