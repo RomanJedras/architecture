@@ -82,6 +82,12 @@ button, select {
   margin-bottom: 30px;
 }
 
+.links a {
+  &:hover {
+    color: gray;
+  }
+}
+
 
 @media(max-width: 767px) {
   @include grid('sm');
