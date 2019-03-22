@@ -28,7 +28,7 @@ html {
 .carousel-cell {
   width: 100%; /* full width */
   height: 50vh; /* height of carousel */
-  min-width: 250px;
+  min-hight: 250px;
   margin-right: 10px;
   background-size: cover;
   opacity: .8;
@@ -81,6 +81,11 @@ button, select {
   width: 0;
   background: #333;
   margin-bottom: 30px;
+}
+
+.google-map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
 }
 
 
