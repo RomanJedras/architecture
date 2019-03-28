@@ -124,6 +124,7 @@
 
 /* line 364, sass/style.css */ button, select { text-transform: none; }
 
+<<<<<<< HEAD
 /* line 367, sass/style.css */ .flickity-button-sec { position: absolute; top: 0; right: 0; margin-right: 20px; margin-top: 20px; }
 
 /* line 374, sass/style.css */ .progress-bar__bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
@@ -181,5 +182,64 @@
   /* line 564, sass/style.css */ .col-xl-10 { flex: 0 0 83.3333333333%; max-width: 83.3333333333%; }
   /* line 568, sass/style.css */ .col-xl-11 { flex: 0 0 91.6666666667%; max-width: 91.6666666667%; }
   /* line 572, sass/style.css */ .col-xl-12 { flex: 0 0 100%; max-width: 100%; } }
+=======
+/* line 367, sass/style.css */ .flickity-button-sec { position: absolute; top: 0; right: 0; margin-right: 20px; margin-top: 20px; z-index: 99; }
+
+/* line 375, sass/style.css */ .progress-bar__bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
+
+/* line 381, sass/style.css */ .google-map { height: 400px; /* The height is 400 pixels */ width: 100%; /* The width is the width of the web page */ }
+
+@media (max-width: 767px) { /* line 388, sass/style.css */ .col-sm-1 { flex: 0 0 8.3333333333%; max-width: 8.3333333333%; }
+  /* line 392, sass/style.css */ .col-sm-2 { flex: 0 0 16.6666666667%; max-width: 16.6666666667%; }
+  /* line 396, sass/style.css */ .col-sm-3 { flex: 0 0 25%; max-width: 25%; }
+  /* line 400, sass/style.css */ .col-sm-4 { flex: 0 0 33.3333333333%; max-width: 33.3333333333%; }
+  /* line 404, sass/style.css */ .col-sm-5 { flex: 0 0 41.6666666667%; max-width: 41.6666666667%; }
+  /* line 408, sass/style.css */ .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+  /* line 412, sass/style.css */ .col-sm-7 { flex: 0 0 58.3333333333%; max-width: 58.3333333333%; }
+  /* line 416, sass/style.css */ .col-sm-8 { flex: 0 0 66.6666666667%; max-width: 66.6666666667%; }
+  /* line 420, sass/style.css */ .col-sm-9 { flex: 0 0 75%; max-width: 75%; }
+  /* line 424, sass/style.css */ .col-sm-10 { flex: 0 0 83.3333333333%; max-width: 83.3333333333%; }
+  /* line 428, sass/style.css */ .col-sm-11 { flex: 0 0 91.6666666667%; max-width: 91.6666666667%; }
+  /* line 432, sass/style.css */ .col-sm-12 { flex: 0 0 100%; max-width: 100%; } }
+
+@media (min-width: 768px) { /* line 436, sass/style.css */ .col-md-1 { flex: 0 0 8.3333333333%; max-width: 8.3333333333%; }
+  /* line 440, sass/style.css */ .col-md-2 { flex: 0 0 16.6666666667%; max-width: 16.6666666667%; }
+  /* line 444, sass/style.css */ .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+  /* line 448, sass/style.css */ .col-md-4 { flex: 0 0 33.3333333333%; max-width: 33.3333333333%; }
+  /* line 452, sass/style.css */ .col-md-5 { flex: 0 0 41.6666666667%; max-width: 41.6666666667%; }
+  /* line 456, sass/style.css */ .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  /* line 460, sass/style.css */ .col-md-7 { flex: 0 0 58.3333333333%; max-width: 58.3333333333%; }
+  /* line 464, sass/style.css */ .col-md-8 { flex: 0 0 66.6666666667%; max-width: 66.6666666667%; }
+  /* line 468, sass/style.css */ .col-md-9 { flex: 0 0 75%; max-width: 75%; }
+  /* line 472, sass/style.css */ .col-md-10 { flex: 0 0 83.3333333333%; max-width: 83.3333333333%; }
+  /* line 476, sass/style.css */ .col-md-11 { flex: 0 0 91.6666666667%; max-width: 91.6666666667%; }
+  /* line 480, sass/style.css */ .col-md-12 { flex: 0 0 100%; max-width: 100%; } }
+
+@media (min-width: 992px) { /* line 484, sass/style.css */ .col-lg-1 { flex: 0 0 8.3333333333%; max-width: 8.3333333333%; }
+  /* line 488, sass/style.css */ .col-lg-2 { flex: 0 0 16.6666666667%; max-width: 16.6666666667%; }
+  /* line 492, sass/style.css */ .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+  /* line 496, sass/style.css */ .col-lg-4 { flex: 0 0 33.3333333333%; max-width: 33.3333333333%; }
+  /* line 500, sass/style.css */ .col-lg-5 { flex: 0 0 41.6666666667%; max-width: 41.6666666667%; }
+  /* line 504, sass/style.css */ .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  /* line 508, sass/style.css */ .col-lg-7 { flex: 0 0 58.3333333333%; max-width: 58.3333333333%; }
+  /* line 512, sass/style.css */ .col-lg-8 { flex: 0 0 66.6666666667%; max-width: 66.6666666667%; }
+  /* line 516, sass/style.css */ .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+  /* line 520, sass/style.css */ .col-lg-10 { flex: 0 0 83.3333333333%; max-width: 83.3333333333%; }
+  /* line 524, sass/style.css */ .col-lg-11 { flex: 0 0 91.6666666667%; max-width: 91.6666666667%; }
+  /* line 528, sass/style.css */ .col-lg-12 { flex: 0 0 100%; max-width: 100%; } }
+
+@media (max-width: 1200px) { /* line 532, sass/style.css */ .col-xl-1 { flex: 0 0 8.3333333333%; max-width: 8.3333333333%; }
+  /* line 536, sass/style.css */ .col-xl-2 { flex: 0 0 16.6666666667%; max-width: 16.6666666667%; }
+  /* line 540, sass/style.css */ .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+  /* line 544, sass/style.css */ .col-xl-4 { flex: 0 0 33.3333333333%; max-width: 33.3333333333%; }
+  /* line 548, sass/style.css */ .col-xl-5 { flex: 0 0 41.6666666667%; max-width: 41.6666666667%; }
+  /* line 552, sass/style.css */ .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+  /* line 556, sass/style.css */ .col-xl-7 { flex: 0 0 58.3333333333%; max-width: 58.3333333333%; }
+  /* line 560, sass/style.css */ .col-xl-8 { flex: 0 0 66.6666666667%; max-width: 66.6666666667%; }
+  /* line 564, sass/style.css */ .col-xl-9 { flex: 0 0 75%; max-width: 75%; }
+  /* line 568, sass/style.css */ .col-xl-10 { flex: 0 0 83.3333333333%; max-width: 83.3333333333%; }
+  /* line 572, sass/style.css */ .col-xl-11 { flex: 0 0 91.6666666667%; max-width: 91.6666666667%; }
+  /* line 576, sass/style.css */ .col-xl-12 { flex: 0 0 100%; max-width: 100%; } }
+>>>>>>> iss53
 
 /*# sourceMappingURL=style.css.map */

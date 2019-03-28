@@ -73,6 +73,7 @@ button, select {
   right: 0;
   margin-right: 20px;
   margin-top: 20px;
+  z-index: 99;
 }
 
 .progress-bar__bar {
@@ -82,10 +83,16 @@ button, select {
   margin-bottom: 30px;
 }
 
+<<<<<<< HEAD
 .links a {
   &:hover {
     color: gray;
   }
+=======
+.google-map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+>>>>>>> iss53
 }
 
 
