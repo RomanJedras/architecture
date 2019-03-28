@@ -1,42 +1,57 @@
 window.initMap = function() {
 
   // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
-  var uluru = {lat: -25.363, lng: 131.044};
-  var coords2 = {lat: -25.363, lng: 134.044};
-  var coords3 = {lat: -25.363, lng: 137.044};
-  var sydney = {lat: -33.874237, lng: 151.198517};
+
+  let coords = [];
+   coords[0] = {lat: -25.363, lng: 131.044};
+   coords[1] = {lat: -25.363, lng: 134.044};
+   coords[2] = {lat: -25.363, lng: 137.044};
+  let sydney = {lat: -33.874237, lng: 151.198517};
   // var myLatlng = new google.maps.LatLng(52.525595,13.393085);
 
 
 
   // W zmiennej map zapisujemy nową instancję obiektu Map.
-  var map = new google.maps.Map(document.getElementById('map'), {
+  let map = new google.maps.Map(document.getElementById('map'), {
     // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
     zoom: 4,
-    center: uluru,
-  });
-
-  let markerOne = new google.maps.Marker({
-    position: uluru,
-    map: map
+    center: coords[0],
   });
 
 
-  markerOne.addListener('click', function(){
-    // Wewnątrz funcji wpisujemy kod, który ma się wykonać po kliknięciu markera. W tym przykładzie wyświetlimy tekst na stronie.
-    infos.innerHTML = 'You clicked markerOne';
-  });
+  let i = 0;
+  const  marker = [];
 
-  let markerTwo = new google.maps.Marker({
-    position: coords2,
-    map: map
-  });
+  for (i; i <= 2; i++) {
+    marker[i] = new google.maps.Marker ({
+      position: coords[i],
+      map: map
+      });
+  }
 
-  markerTwo.addListener('click', function(){
-    infos.innerHTML = 'You clicked markerTwo';
-  });
 
-  document.getElementById('center-map').addEventListener('click', function(event){
+
+  for (let item in marker) {
+      marker[item].addListener('click', function() {
+        if (item == 0 ) {
+          infos.innerHTML = 'You clicked One'
+        } else {
+          let sum = (parseInt(item) + 1);
+          infos.innerHTML = 'You clicked '+ Number(sum);
+        }
+
+      })
+  }
+
+
+
+
+
+
+
+
+
+  document.getElementById ('center-map').addEventListener('click', function(event){
     event.preventDefault();
     // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
     map.panTo(sydney);
@@ -54,7 +69,7 @@ window.initMap = function() {
   Aby zobaczyć ten efekt w akcji, kliknij najpierw guzik "Center map", a następnie "Center smoothly".
   */
 
-  document.getElementById('center-smooth').addEventListener('click', function(event){
+  document.getElementById ('center-smooth').addEventListener('click', function(event){
     event.preventDefault();
     smoothPanAndZoom(map, 7, uluru);
   });
@@ -128,15 +143,4 @@ window.initMap = function() {
       map.panTo({lat: mapCenter.lat() + panStep.lat * i, lng: mapCenter.lng() + panStep.lng * i});
     }, 1000/30);
   };
-
-
-
-  let markerThree = new google.maps.Marker({
-    position: coords3,
-    map: map
-  });
-
-  markerThree.addListener('click', function(){
-    infos.innerHTML = 'You clicked markerThree';
-  });
-}
+};
