@@ -32,20 +32,16 @@ $( document ).ready(function() {
         $('#progress').width( progress * 100 + '%' );
   });
 
-<<<<<<< HEAD
-
   $('#reset').on('click', function () {
     $carousel.flickity()
       .flickity( 'select', 0 );
   });
 
-
-=======
   $('#reset').on('click', function () {
       $carousel.flickity()
         .flickity( 'select', 0 );
   });
->>>>>>> iss53
+
 });
 
 
