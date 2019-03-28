@@ -2,63 +2,131 @@ window.initMap = function() {
 
   // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
 
-  let coords = [];
-   coords[0] = {lat: -25.363, lng: 131.044};
-   coords[1] = {lat: -25.363, lng: 134.044};
-   coords[2] = {lat: -25.363, lng: 137.044};
-  let sydney = {lat: -33.874237, lng: 151.198517};
-  // var myLatlng = new google.maps.LatLng(52.525595,13.393085);
+  infos.innerHTML = '';
+    let map = {}, marker = {};
+ let id = location.hash.replace("#",'');
+ slajdData.forEach(function(item) {
 
+    if (item.id === id) {
 
-
-  // W zmiennej map zapisujemy nową instancję obiektu Map.
-  let map = new google.maps.Map(document.getElementById('map'), {
-    // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
-    zoom: 4,
-    center: coords[0],
-  });
-
-
-  let i = 0;
-  const  marker = [];
-
-  for (i; i <= 2; i++) {
-    marker[i] = new google.maps.Marker ({
-      position: coords[i],
-      map: map
+      map = new google.maps.Map(document.getElementById('map'), {
+        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
+        zoom: 12,
+        center: item.coords
       });
-  }
+
+      marker = new google.maps.Marker ({
+        position: item.coords,
+        map: map
+      });
+
+      document.getElementById ('center-map').addEventListener('click', function(event){
+        event.preventDefault();
+        // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
+        map.panTo(item.coords);
+
+        // A następnie zmieniamy powiększenie mapy:
+        map.setZoom(10);
+      });
+
+      document.getElementById ('center-smooth').addEventListener('click', function(event){
+        event.preventDefault();
+        smoothPanAndZoom(map, 7, item.coords);
+      });
+
+      marker.addListener('click', function() {
+        infos.innerHTML = '';
+        infos.innerHTML = item.title;
+      });
+
+
+    } else {
+      // W zmiennej map zapisujemy nową instancję obiektu Map.
+     map = new google.maps.Map(document.getElementById('map'), {
+        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
+        zoom: 12,
+        center: slajdData[0].coords
+      });
+
+
+     marker = new google.maps.Marker ({
+       position: slajdData[0].coords,
+       map: map
+      });
+
+      document.getElementById ('center-map').addEventListener('click', function(event){
+        event.preventDefault();
+        // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
+        map.panTo(slajdData[0].coords);
+
+        // A następnie zmieniamy powiększenie mapy:
+        map.setZoom(10);
+      });
+
+      document.getElementById ('center-smooth').addEventListener('click', function(event){
+        event.preventDefault();
+        smoothPanAndZoom(map, 7, slajdData[index].coords);
+      });
+
+      marker.addListener('click', function() {
+        infos.innerHTML = slajdData[0].title;
+      });
+    }
+ });
 
 
 
-  for (let item in marker) {
-      marker[item].addListener('click', function() {
-        if (item == 0 ) {
-          infos.innerHTML = 'You clicked One'
-        } else {
-          let sum = (parseInt(item) + 1);
-          infos.innerHTML = 'You clicked '+ Number(sum);
-        }
 
-      })
-  }
+  let slajd = new Flickity( '.main-carousel');
+
+  slajd.on( 'change', function( index ) {
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
+        zoom: 12,
+        center: slajdData[index].coords
+      });
+
+       marker = new google.maps.Marker ({
+        position: slajdData[index].coords,
+        map: map
+      });
+    infos.innerHTML = '';
+    document.getElementById ('center-map').addEventListener('click', function(event){
+      event.preventDefault();
+      // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
+      map.panTo(slajdData[index].coords);
+
+      // A następnie zmieniamy powiększenie mapy:
+      map.setZoom(10);
+    });
+
+    document.getElementById ('center-smooth').addEventListener('click', function(event){
+      event.preventDefault();
+      smoothPanAndZoom(map, 7, slajdData[index].coords);
+    });
+
+    marker.addListener('click', function() {
+      infos.innerHTML = slajdData[index].title;
+    });
 
 
-
-
-
-
-
-
-
-  document.getElementById ('center-map').addEventListener('click', function(event){
-    event.preventDefault();
-    // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
-    map.panTo(sydney);
-
-    // A następnie zmieniamy powiększenie mapy:
-    map.setZoom(10);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* Jak widzisz, guzik "Center map" nagle przeskakuje do docelowych pozycji i powiększenia.
 
@@ -69,10 +137,7 @@ window.initMap = function() {
   Aby zobaczyć ten efekt w akcji, kliknij najpierw guzik "Center map", a następnie "Center smoothly".
   */
 
-  document.getElementById ('center-smooth').addEventListener('click', function(event){
-    event.preventDefault();
-    smoothPanAndZoom(map, 7, uluru);
-  });
+
 
   var smoothPanAndZoom = function(map, zoom, coords){
     // Trochę obliczeń, aby wyliczyć odpowiedni zoom do którego ma oddalić się mapa na początku animacji.
