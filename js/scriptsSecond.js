@@ -78,7 +78,7 @@ window.initMap = function() {
 
 
   let slajd = new Flickity( '.main-carousel');
-
+  let index = 0;
   slajd.on( 'change', function( index ) {
 
     map = new google.maps.Map(document.getElementById('map'), {
