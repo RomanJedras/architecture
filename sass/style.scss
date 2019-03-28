@@ -92,28 +92,13 @@ button, select {
   &:hover {
     color: gray;
   }
+}
 
 .google-map {
   height: 400px;  /* The height is 400 pixels */
   width: 100%;  /* The width is the width of the web page */
-
 }
 
 
-@media(max-width: 767px) {
-  @include grid('sm');
-}
-
-@media(min-width: 768px) {
-  @include grid('md');
-}
-
-@media(min-width: 992px) {
-  @include grid('lg');
-}
-
-@media(max-width: 1200px) {
-  @include grid('xl');
-}
 
 
