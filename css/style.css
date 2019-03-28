@@ -118,7 +118,7 @@
 
 /* line 327, sass/style.css */ .carousel-cell { width: 100%; /* full width */ height: 50vh; /* height of carousel */ min-height: 250px; margin-right: 10px; background-size: cover; opacity: .8; background-color: #000; }
 
-/* line 338, sass/style.css */ .btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4; position: absolute; top: 5px; z-index: 999; right: 10px; }
+/* line 338, sass/style.css */ .btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4; position: absolute; z-index: 9; right: 10px; top: 5px; }
 
 /* line 347, sass/style.css */ .btn { display: inline-block; margin-bottom: 0; font-weight: 400; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; background-image: none; border: 1px solid transparent; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; border-radius: 4px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
