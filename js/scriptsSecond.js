@@ -1,3 +1,6 @@
+let slajd = new Flickity( '.main-carousel');
+
+
 window.initMap = function() {
 
   // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
@@ -77,7 +80,7 @@ window.initMap = function() {
 
 
 
-  let slajd = new Flickity( '.main-carousel');
+
   let index = 0;
   slajd.on( 'change', function( index ) {
 

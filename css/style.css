@@ -126,10 +126,12 @@
 
 /* line 371, sass/style.css */ .flickity-button-sec { position: absolute; top: 0; right: 0; margin-right: 20px; margin-top: 20px; z-index: 99; }
 
-/* line 379, sass/style.css */ .progress-bar__bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
+/* line 379, sass/style.css */ .flickity-page-dots { display: none; }
 
-/* line 385, sass/style.css */ .links a:hover { color: gray; }
+/* line 382, sass/style.css */ .progress-bar__bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
 
-/* line 388, sass/style.css */ .google-map { height: 400px; /* The height is 400 pixels */ width: 100%; /* The width is the width of the web page */ }
+/* line 388, sass/style.css */ .links a:hover { color: gray; }
+
+/* line 391, sass/style.css */ .google-map { height: 400px; /* The height is 400 pixels */ width: 100%; /* The width is the width of the web page */ }
 
 /*# sourceMappingURL=style.css.map */
