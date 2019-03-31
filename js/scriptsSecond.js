@@ -1,124 +1,130 @@
 let slajd = new Flickity( '.main-carousel');
 
-
 window.initMap = function() {
 
   // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
 
   infos.innerHTML = '';
-    let map = {}, marker = {};
- let id = location.hash.replace("#",'');
- slajdData.forEach(function(item) {
-
-    if (item.id === id) {
-
-      map = new google.maps.Map(document.getElementById('map'), {
-        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
-        zoom: 12,
-        center: item.coords
-      });
-
-      marker = new google.maps.Marker ({
-        position: item.coords,
-        map: map
-      });
-
-      document.getElementById ('center-map').addEventListener('click', function(event){
-        event.preventDefault();
-        // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
-        map.panTo(item.coords);
-
-        // A następnie zmieniamy powiększenie mapy:
-        map.setZoom(10);
-      });
-
-      document.getElementById ('center-smooth').addEventListener('click', function(event){
-        event.preventDefault();
-        smoothPanAndZoom(map, 7, item.coords);
-      });
-
-      marker.addListener('click', function() {
-        infos.innerHTML = '';
-        infos.innerHTML = item.title;
-      });
+ let map = {}, marker = {};
+ let idHash = location.hash.replace("#",'');
+ const mapBox = document.getElementById('map');
+ let progress = {};
+ let lastChar = idHash.substr(idHash.length -1);
+ let j = 0;
 
 
-    } else {
-      // W zmiennej map zapisujemy nową instancję obiektu Map.
-     map = new google.maps.Map(document.getElementById('map'), {
-        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
-        zoom: 12,
-        center: slajdData[0].coords
-      });
+    function initialize() {
 
-
-     marker = new google.maps.Marker ({
-       position: slajdData[0].coords,
-       map: map
-      });
-
-      document.getElementById ('center-map').addEventListener('click', function(event){
-        event.preventDefault();
-        // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
-        map.panTo(slajdData[0].coords);
-
-        // A następnie zmieniamy powiększenie mapy:
-        map.setZoom(10);
-      });
-
-      document.getElementById ('center-smooth').addEventListener('click', function(event){
-        event.preventDefault();
-        smoothPanAndZoom(map, 7, slajdData[index].coords);
-      });
-
-      marker.addListener('click', function() {
-        infos.innerHTML = slajdData[0].title;
-      });
+    lastChar = parseInt(lastChar);
+    if (lastChar >= 1 ) {
+      lastChar = lastChar - 1;
     }
- });
+
+    slajd.select( lastChar );
+
+    slajdData.forEach(function(item) {
+
+        if ( idHash === '' ) {
+
+          setMap(slajdData[0].coords);
+          addMarker(slajdData[0].coords,j);
+          progress.params = item.coords;
+          progress.id = slajdData[0].id;
+          sampleCenter(progress.params);
+          markerClick(slajdData[0].title);
+
+        } else if (idHash === item.id) {
+
+          setMap(item.coords);
+          addMarker(item.coords,j);
+          progress.params = item.coords;
+          progress.id = item.id;
+          sampleCenter(progress.params);
+          markerClick(item.title);
+        }
+    });
+
+    j += 1;
+
+  }
 
 
+  let nodes = document.querySelectorAll('#link a'),
+    countLink = nodes.length;
+
+  for (let i = 0; i < countLink; i++) {
+    nodes[i].addEventListener('click', function(i) {
+      setMap(slajdData[i].coords);
+      slajd.select(i);
+      progress.id = slajdData[i].id;
+      progress.title = slajdData[i].title;
+      addMarker(slajdData[i].coords,i);
+      sampleCenter(slajdData[i].coords);
+    }.bind(null, i));
+  }
 
 
-
-  let index = 0;
   slajd.on( 'change', function( index ) {
 
-    map = new google.maps.Map(document.getElementById('map'), {
-        // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
-        zoom: 12,
-        center: slajdData[index].coords
-      });
-
-       marker = new google.maps.Marker ({
-        position: slajdData[index].coords,
-        map: map
-      });
-    infos.innerHTML = '';
-    document.getElementById ('center-map').addEventListener('click', function(event){
-      event.preventDefault();
-      // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
-      map.panTo(slajdData[index].coords);
-
-      // A następnie zmieniamy powiększenie mapy:
-      map.setZoom(10);
-    });
-
-    document.getElementById ('center-smooth').addEventListener('click', function(event){
-      event.preventDefault();
-      smoothPanAndZoom(map, 7, slajdData[index].coords);
-    });
-
-    marker.addListener('click', function() {
-      infos.innerHTML = slajdData[index].title;
-    });
-
-
+    setMap(slajdData[index].coords);
+    progress.id = slajdData[index].id;
+    addMarker(slajdData[index].coords,index);
+    sampleCenter(slajdData[index].coords);
+    markerClick(slajdData[index].title);
   });
 
 
+ function setMap(coords) {
+   map = new google.maps.Map(mapBox, {
+     // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
+     zoom: 12,
+     center: coords
+   });
+
+ }
 
 
+ function sampleCenter(params) {
+
+   document.getElementById ('center-map').addEventListener('click', function(event){
+     event.preventDefault();
+     // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
+     map.panTo(params);
+
+     // A następnie zmieniamy powiększenie mapy:
+     map.setZoom(10);
+   });
+
+   document.getElementById ('center-smooth').addEventListener('click', function(event){
+     event.preventDefault();
+     smoothPanAndZoom(map, 7, params);
+   });
+
+
+ }
+
+  function addMarker(location,index) {
+    marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+
+    marker.addListener('click',function() {
+      infos.innerHTML = progress.title;
+      slajd.select(index - 1);
+    });
+ }
+
+
+  function markerClick(title) {
+    infos.innerHTML = '';
+    marker.addListener('click', function() {
+      infos.innerHTML = title;
+    });
+  }
+
+
+  google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
