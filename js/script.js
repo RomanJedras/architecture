@@ -18,7 +18,7 @@
 
 
 $( document ).ready(function() {
-
+  let flkty = new Flickity('.main-carousel');
   let $carousel = $('.main-carousel').flickity({
         // options
     cellAlign: 'left',
@@ -33,8 +33,7 @@ $( document ).ready(function() {
   });
 
   $('#reset').on('click', function () {
-    console.log($carousel);
-    $carousel.flickity('select', 0 );
+    flkty.select(0);
   });
 });
 
