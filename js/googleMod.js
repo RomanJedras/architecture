@@ -1,126 +1,41 @@
 let slajd = new Flickity( '.main-carousel');
 
 window.initMap = function() {
-
+  const mapBox = document.getElementById('map');
   // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
 
   infos.innerHTML = '';
  let map = {}, marker = {};
- let idHash = location.hash.replace("#",'');
- const mapBox = document.getElementById('map');
- let progress = {};
- let lastChar = idHash.substr(idHash.length -1);
- let j = 0;
 
 
-    function initialize() {
+  function initialize() {
 
+   setMap(slajdData[0].coords);
+    let i = 0;
+    for ( i; i < slajdData.length; i++) {
+      addMarker(slajdData[i].coords);
+    }
 
-
-
-
-    slajdData.forEach(function(item) {
-
-        setMap(item.coords);
-        addMarker(item.coords,j);
-        progress.params = item.coords;
-        progress.id = item.id;
-        sampleCenter(progress.params);
-        markerClick(item.title);
-
-    });
-
-    j += 1;
-
-  }
-
-
-  let nodes = document.querySelectorAll('#link a'),
-    countLink = nodes.length;
-
-  for (let i = 0; i < countLink; i++) {
-    nodes[i].addEventListener('click', function(i) {
-      setMap(slajdData[i].coords);
-      slajd.select(i);
-      progress.id = slajdData[i].id;
-      progress.title = slajdData[i].title;
-      addMarker(slajdData[i].coords,i);
-      sampleCenter(slajdData[i].coords);
-    }.bind(null, i));
-  }
-
-
-  slajd.on( 'change', function( index ) {
-
-    setMap(slajdData[index].coords);
-    progress.id = slajdData[index].id;
-    addMarker(slajdData[index].coords,index);
-    sampleCenter(slajdData[index].coords);
-    markerClick(slajdData[index].title);
-  });
-
-
- function setMap(coords) {
-   map = new google.maps.Map(mapBox, {
-     // Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
-     zoom: 12,
-     center: coords
-   });
-
- }
-
-
- function sampleCenter(params) {
-
-   document.getElementById ('center-map').addEventListener('click', function(event){
-     event.preventDefault();
-     // Najpierw wykorzystujemy metodę panTo w obiekcie map do przesunięcia współrzędnych mapy:
-     map.panTo(params);
-
-     // A następnie zmieniamy powiększenie mapy:
-     map.setZoom(10);
-   });
-
-   document.getElementById ('center-smooth').addEventListener('click', function(event){
-     event.preventDefault();
-     smoothPanAndZoom(map, 7, params);
-   });
-
-
- }
-
-  function addMarker(location,index) {
-    marker = new google.maps.Marker({
-      position: location,
-      map: map
-    });
-
-    marker.addListener('click',function() {
-      infos.innerHTML = progress.title;
-      slajd.select(index - 1);
-    });
- }
-
-
-  function markerClick(title) {
-    infos.innerHTML = '';
-    marker.addListener('click', function() {
-      infos.innerHTML = title;
-    });
-  }
+    }
 
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
 
+  function setMap(coords) {
+    map = new google.maps.Map(mapBox, {
+      zoom: 6,
+      center: new google.maps.LatLng(coords),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+  }
 
-
-
-
-
-
-
-
+  function addMarker(location) {
+    marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
 
 
   /* Jak widzisz, guzik "Center map" nagle przeskakuje do docelowych pozycji i powiększenia.
