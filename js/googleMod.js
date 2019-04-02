@@ -10,13 +10,13 @@ window.initMap = function() {
 
   function initialize() {
 
-   setMap(slajdData[0].coords);
+    setMap(slajdData[0].coords);
     let i = 0;
     for ( i; i < slajdData.length; i++) {
       addMarker(slajdData[i].coords);
     }
 
-    }
+  }
 
 
   google.maps.event.addDomListener(window, 'load', initialize);
