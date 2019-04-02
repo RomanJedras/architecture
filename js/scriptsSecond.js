@@ -24,24 +24,13 @@ window.initMap = function() {
 
     slajdData.forEach(function(item) {
 
-        if ( idHash === '' ) {
+        setMap(item.coords);
+        addMarker(item.coords,j);
+        progress.params = item.coords;
+        progress.id = item.id;
+        sampleCenter(progress.params);
+        markerClick(item.title);
 
-          setMap(slajdData[0].coords);
-          addMarker(slajdData[0].coords,j);
-          progress.params = item.coords;
-          progress.id = slajdData[0].id;
-          sampleCenter(progress.params);
-          markerClick(slajdData[0].title);
-
-        } else if (idHash === item.id) {
-
-          setMap(item.coords);
-          addMarker(item.coords,j);
-          progress.params = item.coords;
-          progress.id = item.id;
-          sampleCenter(progress.params);
-          markerClick(item.title);
-        }
     });
 
     j += 1;
