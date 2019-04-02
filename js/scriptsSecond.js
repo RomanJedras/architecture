@@ -15,12 +15,9 @@ window.initMap = function() {
 
     function initialize() {
 
-    lastChar = parseInt(lastChar);
-    if (lastChar >= 1 ) {
-      lastChar = lastChar - 1;
-    }
 
-    slajd.select( lastChar );
+
+
 
     slajdData.forEach(function(item) {
 
