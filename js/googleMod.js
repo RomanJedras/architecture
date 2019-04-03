@@ -3,7 +3,6 @@ let slajd = new Flickity( '.main-carousel');
     window.initMap = function() {
       const mapBox = document.getElementById('map');
       // Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
-      infos.innerHTML = '';
       let map = {}, marker = {};
 
 
@@ -17,7 +16,7 @@ let slajd = new Flickity( '.main-carousel');
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infos.innerHTML = slajdData[i].title;
+             // infos.innerHTML = slajdData[i].title;
               slajd.select(i);
 
             }
@@ -63,7 +62,7 @@ let slajd = new Flickity( '.main-carousel');
         });
       }
 
-    }
+    };
 
 
 

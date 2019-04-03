@@ -128,7 +128,7 @@
 
 /* line 379, sass/style.css */ .flickity-page-dots { display: none; }
 
-/* line 382, sass/style.css */ .progress-bar__bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
+/* line 382, sass/style.css */ .progress-bar { height: 20px; width: 0; background: #333; margin-bottom: 30px; }
 
 /* line 388, sass/style.css */ .links a:hover { color: gray; }
 
