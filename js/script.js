@@ -52,7 +52,7 @@
         addMarker(slajdData[i].coords);
 
         google.maps.event.addListener(marker, 'click', function() {
-         flkty.select(i);
+         slajd.select(i);
         });
       }
     }
